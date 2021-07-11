@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credenciales de la Base de Datos</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/crear-credenciales.css">
+    <noscript>
+      <section id="no-js">
+      <p id="noscript">Necesitas Javascript Para Continuar</p>
+    </section>
+    </noscript>
+</head>
+<body>
+    <main>
+      <form id="nuevas-credenciales">
+        <fieldset>
+          <legend>Credenciales de la Base de Datos</legend>
+          <label for="bbdd">Nombre de la Base de Datos:</label>
+          <input type="text" name="bbdd" id="bbdd" required>
+          <p id="advertencia-bbdd" class="advertencia"></p>
+          <label for="usuario-bbdd">Usuario de la Base de Datos:</label>
+          <input type="text" name="usuario-bbdd" id="usuario-bbdd" required>
+          <p id="advertencia-usuario-bbdd" class="advertencia"></p>
+          <label for="contrasenha-bbdd">Contraseña de la Base de Datos:</label>
+          <input type="password" name="contrasenha-bbdd" id="contrasenha-bbdd" required>
+          <p id="advertencia-contrasenha-bbdd" class="advertencia"></p>
+          <input type="submit" value="Enviar">
+          <p id="ayuda">Este chat utiliza MySQL, el usuario debe existir para poder crear la estructura.<br/><a href="crear-credenciales-manualmente.html">¿Problemas de permisos? Crear credenciales manualmente</a></p>
+
+        </fieldset>
+        <fieldset id="advertencia-seguridad">
+          <legend>Advertencia</legend>
+        <span>Este fichero supone un riesgo de seguridad.<br>Debe protegerlo o borrarlo una vez configurada la aplicación.</span>
+          <input type="checkbox" name="borrar-archivos" id="borrar-archivos">
+          <label for="borrar-archivos">Deshabilitar archivos cuando finalice la configuración.</label>
+        </fieldset>
+      </form>
+    </main>
+    <script src="js/scriptCredenciales.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credenciales de la Base de Datos</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/crear-credenciales.css">
+    <noscript>
+      <section id="no-js">
+      <p id="noscript">Necesitas Javascript Para Continuar</p>
+    </section>
+    </noscript>
+</head>
+<body>
+    <main id="manual">
+      <h1>Crear Base de Datos manualmente</h1>
+      <p>Necesitamos saber de antemano:</p>
+      <ul>
+        <li><span class="resaltado">nombreBaseDatos</span> : El nombre que le queremos poner a la base de datos.</li>
+        <li><span class="resaltado">nombreHost</span> : Donde nos queremos conectar. Puede ser localhost, ejemplo.com, etc.</li>
+        <li><span class="resaltado">nombreUsuarioBaseDatos</span> : El nombre de un usuario con privilegios para poder crear y modificar la base de datos del chat.</li>
+        <li><span class="resaltado">contraseñaUsuarioBaseDatos</span> : Contraseña del usuario.</li>
+      </ul>
+
+      <p>Una vez tenemos toda la información a mano, podemos proceder modificando los nombres en rojo por nuestra información:</p>
+      <ol>
+        <li>
+          Vamos a nuestro administrador de bases de datos y Creamos la BBDD:
+          <br/><br/>
+          "CREATE DATABASE <span class="resaltado">nombreBaseDatos</span>"
+          <br/><br/>
+        </li>
+        <li>Le añadimos la tabla para guardar el historial de mensajes:
+        <br/><br/>
+        CREATE TABLE <span class="resaltado">nombreBaseDatos</span>.`ciberchat` ( `numeroMensaje` INT(11) NOT NULL AUTO_INCREMENT ,
+        `usuario` VARCHAR(30) NOT NULL DEFAULT 'Desconocid@' ,
+        `mensaje` VARCHAR(300) NOT NULL , `hora` VARCHAR(30) NOT NULL ,
+        PRIMARY KEY (`numeroMensaje`)) ENGINE = InnoDB;
+        <br/><br/>
+      </li>
+      <li>Le añadimos la tabla de usuarios conectados:
+      <br/><br/>
+      CREATE TABLE <span class="resaltado">nombreBaseDatos</span>.`usuariosConectados` ( `usuario` VARCHAR(30) NOT NULL ) ENGINE = InnoDB;
+      <br/><br/>
+    </li>
+    <li>Por último, creamos en la carpeta php un archivo llamado "cred.php" y le añadimos la siguiente información:
+    <br/><br/>
+    &lt;?php  $host = '<span class="resaltado">nombreHost</span>';  $nombreUsuario = '<span class="resaltado">nombreUsuarioBaseDatos</span>'; $contrasenhaUsuario = '<span class="resaltado">contraseñaUsuarioBaseDatos</span>';  $nombreBBDD = '<span class="resaltado">nombreBaseDatos</span>'; ?>
+
+  </li>
+      </ol>
+    </main>
+    <script src="js/scriptCredenciales.js"></script>
+</body>
+</html>
