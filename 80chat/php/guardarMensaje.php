@@ -1,5 +1,6 @@
 <?php
-  include "cred.php";
+  include "../../chat-cred/cred.php";
+  
   $con = new mysqli($host, $nombreUsuario, $contrasenhaUsuario, $nombreBBDD);
 
   $mensaje = file_get_contents("php://input");
