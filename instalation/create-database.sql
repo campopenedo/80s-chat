@@ -1,4 +1,4 @@
-CREATE DATABASE $nombreBBDD;
+CREATE DATABASE ciberchat;
 
 CREATE TABLE $nombreBBDD.`ciberchat` ( `numeroMensaje` INT(11) NOT NULL AUTO_INCREMENT ,
   `usuario` VARCHAR(30) NOT NULL DEFAULT 'Desconocid@' ,
