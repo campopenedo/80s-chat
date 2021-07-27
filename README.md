@@ -3,7 +3,7 @@ A web chat project with retro thematic.
 
 ### How can i use it on my web
 1. Create the database <a href="https://github.com/campopenedo/80s-chat/blob/main/instalation/create-database.sql">with this SQL sentences</a>
-2. Use <a href="https://github.com/campopenedo/80s-chat/blob/main/instalation/cred.php>this template</a> for credentials, and remove it from the public webroot. For example:
+2. Use <a href="https://github.com/campopenedo/80s-chat/blob/main/instalation/cred.php">this template</a> for credentials, and remove it from the public webroot. For example:
 
     -If your URL is example.com/public/80s-chat, put the cred.php on example.com/chat-cred/cred.php and it works by default.
   
