@@ -4,7 +4,7 @@ export default function desconectarUsuario() {
       let formData = new FormData();
       formData.append('nombre', `${sessionStorage.getItem("usuarioChat")}`);
 
-      const respuesta = fetch("/chat/80s-chat/80chat/php/desconectarUsuario.php", {
+      const respuesta = fetch("php/desconectarUsuario.php", {
         method: "POST",
         body : formData
       })
