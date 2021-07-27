@@ -15,5 +15,3 @@ A web chat project with retro thematic.
     4.  obtenerUsuariosConectados.php: line 2
     5.  recuperarMensajes.php: line 2
     6.  recuperarMensajesNuevos.php: line 2
-
-3. Don't forget to give the right permissions for cred.php and chat-cred ! (for example 700)
