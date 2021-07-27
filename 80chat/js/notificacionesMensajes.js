@@ -1,7 +1,6 @@
 export default function notificacionesMensajes() {
   let cambioTitulo;
   document.addEventListener("visibilitychange", (e) =>{
-    console.log(document.visibilityState);
     if(document.visibilityState === "hidden") {
       let mensajesUsuario = document.getElementById("mensajes").querySelectorAll(".usuario-mensaje"),
       numeroMayor = mensajesUsuario[mensajesUsuario.length - 1].id;

@@ -1,5 +1,5 @@
 export default async function listaUsuarios(){
-  const respuesta = await fetch("/80chat/php/obtenerUsuariosConectados.php");
+  const respuesta = await fetch("/chat/80s-chat/80chat/php/obtenerUsuariosConectados.php");
 
   respuesta.json()
   .then((datos) => {

@@ -28,3 +28,5 @@ document.addEventListener("submit", (e)=>{
 setInterval(()=>{
   recargarChat();
 }, 1000);
+
+console.log(window.location.pathname);

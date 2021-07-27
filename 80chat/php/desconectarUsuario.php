@@ -1,6 +1,6 @@
 <?php
-  include "cred.php";
-
+include "cred.php";
+  
   $con = new mysqli($host, $nombreUsuario, $contrasenhaUsuario, $nombreBBDD);
 
   $nombre = $_POST["nombre"];

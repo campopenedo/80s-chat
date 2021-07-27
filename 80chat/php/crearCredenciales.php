@@ -19,14 +19,17 @@ if(preg_match($pattern, $nombreBBDD) && preg_match($pattern, $nombreUsuario) && 
   $con->query("CREATE TABLE $nombreBBDD.`ciberchat` ( `numeroMensaje` INT(11) NOT NULL AUTO_INCREMENT ,
   `usuario` VARCHAR(30) NOT NULL DEFAULT 'Desconocid@' ,
   `mensaje` VARCHAR(300) NOT NULL , `hora` VARCHAR(30) NOT NULL ,
-  PRIMARY KEY (`numeroMensaje`)) ENGINE = InnoDB;");
+  PRIMARY KEY (`numeroMensaje`))");
 
-  $con->query("CREATE TABLE $nombreBBDD.`usuariosConectados` ( `usuario` VARCHAR(30) NOT NULL ) ENGINE = InnoDB; ");
+  $con->query("CREATE TABLE $nombreBBDD.`usuariosConectados` ( `usuario` VARCHAR(30) NOT NULL ); ");
 
-  $credenciales = fopen("cred.php", "w+");
-  fwrite($credenciales, "<?php  \$host = '$host';  \$nombreUsuario = '$nombreUsuario'; \$contrasenhaUsuario = '$contrasenhaUsuario';  \$nombreBBDD = '$nombreBBDD'; ?>");
+  $credenciales = fopen("cred.php", "w");
+  echo fwrite($credenciales, "<?php  \$host = '$host';  \$nombreUsuario = '$nombreUsuario'; \$contrasenhaUsuario = '$contrasenhaUsuario';  \$nombreBBDD = '$nombreBBDD'; ?>");
+  fclose($credenciales);
   if(file_exists("cred.php")){
     echo "Success";
+  } else {
+
   }
 }
  ?>
