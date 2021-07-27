@@ -1,5 +1,5 @@
 <?php
-include "cred.php";
+include "../../chat-cred/cred.php";
 $nombre = $_POST["nombre"];
 if(preg_match("/^[a-zA-Z0-9 ]{1,30}$/", $nombre) == 0) {
 
