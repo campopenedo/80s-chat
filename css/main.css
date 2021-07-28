@@ -64,19 +64,19 @@ main{
 
 fieldset#chat{
     display:flex;
-    width: 90%;
-    height: 80%;
+    width: 90vw;
+    height: 95%;
     position:absolute;
     font-size: 35%;
     padding-left: 0%;
     border: 2px solid var(--rojo);
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin: 5%;
+    margin: 2.5%;
     flex-wrap: wrap;
 }
 
 #mensajes{
-    width: 80%;
+    width: 70vw;
     height: 80%;
     margin-left: 1%;
     overflow-y: scroll;
@@ -114,7 +114,6 @@ fieldset#chat{
   position: absolute;
   bottom: 0px;
   right:0px;
-  width: 120px;
 }
 
 #mensajes section.servidor div.separador {
@@ -123,14 +122,13 @@ fieldset#chat{
 }
 
 #mensajes section .separador {
-  width: 120px;
   height: 25px;
   margin-top: -1px;
 }
 
 
 #usuarios{
-    width: 16%;
+    width: 16vw;
     height:80%;
     border-left: 2px solid rgba(226, 0, 0, 0.432);
     margin-left: 1%;
@@ -211,7 +209,7 @@ section#zona-interaccion{
 }
 
 fieldset.introducir-nombre label{
-  font-size: 3.5em;
+  font-size: 3em;
   font-weight: bold;
 }
 
@@ -221,11 +219,66 @@ fieldset.introducir-nombre label input#nombre-usuario {
   border-bottom: 3px solid var(--amarillo);
   color: var(--amarillo);
   font-size: 1em;
-  width: 300px;
+  width: 20vw;
 }
 
 fieldset.introducir-nombre label input:focus {
   outline: none;
+}
+
+@media screen and (max-width: 690px) {
+  section#mensajes{
+    width: 100%;
+    font-size: 1vw;
+  }
+
+  section#usuarios{
+    display: none;
+  }
+
+
+  section.usuario-mensaje {
+    width: 80vw;
+    
+  }
+
+
+  form#formulario-interaccion {
+    grid-template-columns: 85% 13%;
+  }
+
+  fieldset.introducir-nombre {
+    font-size: .5vw;
+    min-height: 50px;
+  }
+
+  fieldset.introducir-nombre label input#nombre-usuario {
+    width: 98%;
+  }
+
+  input#enviar {
+    padding: 0;
+    font-size: 3vw;
+  }
+
+  pre {
+    font-size: 1vw
+  }
+
+  #mensajes section span.hora{
+    font-size: 2vw;
+    text-align: right;
+    padding: 1vw;
+  }
+
+  @media screen and (max-height: 420px) {
+
+    #mensajes section span.mensaje {
+      width: 670px!important;
+      word-break: break-all;
+      word-wrap:break-word;
+    }
+  }
 }
 
 @keyframes noScript {

@@ -8,8 +8,6 @@ export default function recargarChat() {
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.send(`id=${numeroMayor}`);
   xhr.addEventListener("readystatechange", (e) =>{
-    console.log("control de flujo");
-    console.log(e);
     if(e.target.readyState === 4 && e.target.status === 200){
       let mensajesJSON = JSON.parse(e.target.response);
       if(Object.keys(mensajesJSON["mensajes"]).length > 0){
