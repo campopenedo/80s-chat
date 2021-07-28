@@ -22,11 +22,6 @@ window.addEventListener("DOMContentLoaded", ()=>{
       document.getElementById("mensajes").scrollTop = document.getElementById("mensajes").scrollHeight;
     });
 });
-document.addEventListener("submit", (e)=>{
-  console.log("prueba");
-})
 setInterval(()=>{
   recargarChat();
 }, 1000);
-
-console.log(window.location.pathname);
