@@ -183,7 +183,7 @@ textarea{
 }
 
 
-input[type="submit"]{
+input[type="submit"], #switch-vista{
     border:none;
     vertical-align:top;
     padding:3vh;
@@ -226,6 +226,12 @@ fieldset.introducir-nombre label input:focus {
   outline: none;
 }
 
+
+#switch-vista{
+  display: none;
+}
+
+
 @media screen and (max-width: 690px) {
   section#mensajes{
     width: 100%;
@@ -262,13 +268,22 @@ fieldset.introducir-nombre label input:focus {
   }
 
   pre {
-    font-size: 1vw
+    font-size: .5vw;
   }
 
   #mensajes section span.hora{
     font-size: 2vw;
     text-align: right;
     padding: 1vw;
+  }
+
+  #switch-vista {
+    display: block;
+    width: 70%;
+    margin: 1vw 10%;
+    padding: 2.5vw;
+    position: absolute;
+    bottom: -70px;
   }
 
   @media screen and (max-height: 420px) {

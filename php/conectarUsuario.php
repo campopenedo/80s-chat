@@ -1,16 +1,19 @@
 <?php
 include "../../chat-cred/cred.php";
 $nombre = $_POST["nombre"];
-echo $nombre;
 if(preg_match("/^[a-zA-Z0-9 ]{1,30}$/", $nombre) == 0) {
 
 }else{
   $con = new mysqli($host, $nombreUsuario, $contrasenhaUsuario, $nombreBBDD);
 
   $nombre = $_POST["nombre"];
+  $conectadoDesde = time();
+  $segundosActivo = 0;
+  $online = 1;
 
-  $stmt = $con->prepare('INSERT INTO usuariosConectados(usuario) VALUES(?);');
-  $stmt->bind_param('s', $nombre);
+
+  $stmt = $con->prepare('INSERT INTO usuariosConectados(usuario, conectadoDesde, SegundosActivo, usuarioOnline) VALUES(?,?,?,?);');
+  $stmt->bind_param('siii', $nombre, $conectadoDesde, $segundosActivo, $online);
   $stmt->execute();
   $stmt->close();
 

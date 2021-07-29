@@ -1,3 +1,4 @@
+import usuarioActivo from "./usuarioActivo.js";
 export default function mensajesAntiguos(e){
     let mensajesJson = JSON.parse(e.target.response),
     $fragment = document.createDocumentFragment();
