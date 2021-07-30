@@ -21,7 +21,6 @@ export default function enviarMensaje(){
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(mensajeJSONstring);
         xhr.addEventListener("load", async () => {
-          await recargarChat();
           document.getElementById("mensaje").value = "";
         });
       }

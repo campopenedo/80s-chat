@@ -1,5 +1,5 @@
 import listaUsuarios from "./listaUsuarios.js";
-export default function recargarChat() {
+export default async function recargarChat() {
   let mensajes = document.getElementById("mensajes").children,
   numeroMayor = `${mensajes.length > 0 ? mensajes[mensajes.length -1].id : 0}`,
   xhr = new XMLHttpRequest(),
@@ -7,10 +7,14 @@ export default function recargarChat() {
   xhr.open("POST", "php/recuperarMensajesNuevos.php");
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.send(`id=${numeroMayor}`);
-  xhr.addEventListener("readystatechange", (e) =>{
+  xhr.addEventListener("readystatechange",async function (e) {
     if(e.target.readyState === 4 && e.target.status === 200){
       let mensajesJSON = JSON.parse(e.target.response);
-      if(Object.keys(mensajesJSON["mensajes"]).length > 0){
+      let prueba = await setTimeout(await function () {
+        if(mensajesJSON["mensajes"][1]["numero"] === document.getElementById("mensajes").lastChild.id){return false};
+      }, 1000)
+      if(Object.keys(mensajesJSON["mensajes"]).length > 0 && mensajesJSON["mensajes"][1]["numero"] !== document.getElementById("mensajes").lastChild.id){
+
         $fragment = document.createDocumentFragment();
         for(let x = 1; x <= Object.keys(mensajesJSON["mensajes"]).length; x++){
             let $mensajeEnChat = document.createElement("section"),
