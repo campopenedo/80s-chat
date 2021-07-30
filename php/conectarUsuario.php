@@ -8,12 +8,12 @@ if(preg_match("/^[a-zA-Z0-9 ]{1,30}$/", $nombre) == 0) {
 
   $nombre = $_POST["nombre"];
   $conectadoDesde = time();
-  $segundosActivo = 0;
+  $ultimaActividad = time();
   $online = 1;
 
 
-  $stmt = $con->prepare('INSERT INTO usuariosConectados(usuario, conectadoDesde, SegundosActivo, usuarioOnline) VALUES(?,?,?,?);');
-  $stmt->bind_param('siii', $nombre, $conectadoDesde, $segundosActivo, $online);
+  $stmt = $con->prepare('INSERT INTO usuariosConectados(usuario, conectadoDesde, ultimaActividad, usuarioOnline) VALUES(?,?,?,?);');
+  $stmt->bind_param('siii', $nombre, $conectadoDesde, $ultimaActividad, $online);
   $stmt->execute();
   $stmt->close();
 

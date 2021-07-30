@@ -12,6 +12,7 @@ import usuariosInactivos from "./usuariosInactivos.js";
 notificacionesMensajes
 window.addEventListener("DOMContentLoaded", async function iniciarChat(){
     await usuariosInactivos();
+    sessionStorage.removeItem('usuarioChat');
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "php/recuperarMensajes.php");
     xhr.send();

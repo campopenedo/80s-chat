@@ -3,7 +3,7 @@ include "../../chat-cred/cred.php";
   
 $con = new mysqli($host, $nombreUsuario, $contrasenhaUsuario, $nombreBBDD);
 
-$usuariosInactivos = $con->query('SELECT * FROM `usuariosConectados` WHERE `conectadoDesde` + `segundosActivo` < ('. time() . ' - 5);');
+$usuariosInactivos = $con->query('SELECT * FROM `usuariosConectados` WHERE `ultimaActividad` < ('. time() . ' - 5);');
 
 while($row = mysqli_fetch_array($usuariosInactivos)){
     $usuarioDesconectado = $con->query('DELETE FROM usuariosConectados WHERE usuario = "'. $row["usuario"] .'";');

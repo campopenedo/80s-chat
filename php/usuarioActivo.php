@@ -5,7 +5,7 @@ $nombre = $_POST["nombre"];
   
 $con = new mysqli($host, $nombreUsuario, $contrasenhaUsuario, $nombreBBDD);
 
-$usuarioActivo = $con->prepare('UPDATE `usuariosConectados` SET `segundosActivo` = `segundosActivo` + 1 WHERE usuario = ?');
+$usuarioActivo = $con->prepare('UPDATE `usuariosConectados` SET `ultimaActividad` = ' . time() . ' WHERE usuario = ?');
 $usuarioActivo->bind_param('s', $nombre);
 $usuarioActivo->execute();
 

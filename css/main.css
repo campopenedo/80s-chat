@@ -4,6 +4,7 @@
     --azultrans: rgba(0,255,255,0.2);
     --negrojs: #222;
     --violeta: rgb(246, 32, 51);
+    --violetaTrans: rgba(246, 32, 50, 0.15);
     --gris: rgb(120, 122, 151);
     --rojo: rgba(255, 0, 0, 0.247);
 }
@@ -70,7 +71,7 @@ fieldset#chat{
     font-size: 35%;
     padding-left: 0%;
     border: 2px solid var(--rojo);
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Arial Narrow Bold', sans-serif;
     margin: 2.5%;
     flex-wrap: wrap;
 }
@@ -140,6 +141,15 @@ fieldset#chat{
   list-style-type: none;
   padding-left: 10%;
   word-break: break-all;
+}
+
+#usuarios li {
+  text-align: center;
+  border: 1px solid  var(--violeta);
+  width: 90%;
+  margin-left: 5%;
+  background-color: var(--violetaTrans);
+  margin-bottom: 3vw;
 }
 
 
@@ -254,7 +264,7 @@ fieldset.introducir-nombre label input:focus {
   }
 
   fieldset.introducir-nombre {
-    font-size: .5vw;
+    font-size: 1vw;
     min-height: 50px;
   }
 
@@ -289,11 +299,23 @@ fieldset.introducir-nombre label input:focus {
   @media screen and (max-height: 420px) {
 
     #mensajes section span.mensaje {
-      width: 670px!important;
+      width: 670px;
       word-break: break-all;
       word-wrap:break-word;
     }
   }
+
+  #usuarios {
+    width: 100%;
+    overflow-y: scroll;
+    scrollbar-color: rgba(207,0,0, 0.5) rgba(0,0,0,0);
+    border: none;
+  }
+
+  #usuarios ul {
+    padding-left: 0px;
+  }
+
 }
 
 @keyframes noScript {

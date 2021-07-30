@@ -11,7 +11,9 @@ export default async function recargarChat() {
     if(e.target.readyState === 4 && e.target.status === 200){
       let mensajesJSON = JSON.parse(e.target.response);
       let prueba = await setTimeout(await function () {
-        if(mensajesJSON["mensajes"][1]["numero"] === document.getElementById("mensajes").lastChild.id){return false};
+        if(mensajesJSON["mensajes"][1] && document.getElementById("mensajes").lastChild){
+          if(mensajesJSON["mensajes"][1]["numero"] === document.getElementById("mensajes").lastChild.id){return false};
+        }
       }, 1000)
       if(Object.keys(mensajesJSON["mensajes"]).length > 0 && mensajesJSON["mensajes"][1]["numero"] !== document.getElementById("mensajes").lastChild.id){
 
