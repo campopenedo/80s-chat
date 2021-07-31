@@ -1,5 +1,6 @@
 <?php
   include "../../chat-cred/cred.php";
+  session_start();
   $con = new mysqli($host, $nombreUsuario, $contrasenhaUsuario, $nombreBBDD);
 
   $mensaje = file_get_contents("php://input");
@@ -15,7 +16,7 @@
 
   }else{
     $guardarMensaje = $con->prepare('INSERT INTO ciberchat(usuario, mensaje, hora) VALUES(?, ?, ?)');
-    $guardarMensaje->bind_param('sss', htmlspecialchars($usuarioMensaje), $textoMensaje, $date);
+    $guardarMensaje->bind_param('sss', htmlspecialchars($_SESSION["nombre"]), $textoMensaje, $date);
     $guardarMensaje->execute();
     $guardarMensaje->close();
   }

@@ -1,9 +1,7 @@
 import recargarChat from "./recargarChat.js";
 let d = document;
 export default function enviarMensaje(){
-  d.addEventListener("click", (e) =>{
-    e.preventDefault();
-    if(e.target.id === "enviar" &&  d.getElementById("mensaje") !== null){
+    if(d.getElementById("mensaje") !== null){
       if(d.getElementById("mensaje").value.length > 0) {
         let mensaje = d.getElementById("mensaje").value,
         data = new Date(),
@@ -23,7 +21,18 @@ export default function enviarMensaje(){
         xhr.addEventListener("load", async () => {
           document.getElementById("mensaje").value = "";
         });
+        
       }
     }
-  })
 }
+d.addEventListener("click", e => {
+  if(e.target.id === "enviar") {
+    e.preventDefault();
+    enviarMensaje();
+  }
+});
+d.addEventListener("keydown", (e) => {
+  if(e.key === "Enter"){
+    enviarMensaje();
+  }
+})
