@@ -14,8 +14,8 @@ export default async function recargarChat() {
         if(mensajesJSON["mensajes"][1] && document.getElementById("mensajes").lastChild){
           if(mensajesJSON["mensajes"][1]["numero"] === document.getElementById("mensajes").lastChild.id){return false};
         }
-      }, 1000)
-      if(Object.keys(mensajesJSON["mensajes"]).length > 0 && mensajesJSON["mensajes"][1]["numero"] !== document.getElementById("mensajes").lastChild.id){
+      }, 1000);
+      if(Object.keys(mensajesJSON["mensajes"]).length > 0 && mensajesJSON["mensajes"][1]["numero"] != `${document.getElementById("mensajes").lastChild !== null ? document.getElementById("mensajes").lastChild.id : "0"}` ){
 
         $fragment = document.createDocumentFragment();
         for(let x = 1; x <= Object.keys(mensajesJSON["mensajes"]).length; x++){
