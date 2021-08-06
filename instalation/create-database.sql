@@ -1,8 +1,9 @@
-CREATE DATABASE $nombreBBDD;
+CREATE DATABASE ciberchat;
 
-CREATE TABLE $nombreBBDD.`ciberchat` ( `numeroMensaje` INT(11) NOT NULL AUTO_INCREMENT ,
+CREATE TABLE ciberchat.`ciberchat` ( `numeroMensaje` INT(11) NOT NULL AUTO_INCREMENT ,
   `usuario` VARCHAR(30) NOT NULL DEFAULT 'Desconocid@' ,
   `mensaje` VARCHAR(300) NOT NULL , `hora` VARCHAR(30) NOT NULL ,
   PRIMARY KEY (`numeroMensaje`));
 
-CREATE TABLE $nombreBBDD.`usuariosConectados` ( `usuario` VARCHAR(30) NOT NULL );
+
+CREATE TABLE ciberchat.`usuariosConectados` ( `usuario` VARCHAR(30) NOT NULL, `conectadoDesde` INT(20) NOT NULL, `ultimaActividad` INT(20), `usuarioOnline` BOOLEAN);

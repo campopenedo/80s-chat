@@ -5,10 +5,14 @@ import elegirUsuario from "./elegirUsuario.js";
 import desconectarUsuario from "./desconectarUsuario.js";
 import listaUsuarios from "./listaUsuarios.js";
 import notificacionesMensajes from "./notificacionesMensajes.js";
+import * as cambiarVista from "./cambiar-vista-mobil.js";
+import usuarioActivo from "./usuarioActivo.js";
+import usuariosInactivos from "./usuariosInactivos.js";
 
 notificacionesMensajes
-window.addEventListener("DOMContentLoaded", ()=>{
-  document.body.style.display='block';
+window.addEventListener("DOMContentLoaded", async function iniciarChat(){
+    await usuariosInactivos();
+    sessionStorage.removeItem('usuarioChat');
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "php/recuperarMensajes.php");
     xhr.send();
@@ -21,12 +25,10 @@ window.addEventListener("DOMContentLoaded", ()=>{
       notificacionesMensajes();
       document.getElementById("mensajes").scrollTop = document.getElementById("mensajes").scrollHeight;
     });
+    document.getElementById("switch-vista").innerHTML = "Ver usuarios";
 });
-document.addEventListener("submit", (e)=>{
-  console.log("prueba");
-})
 setInterval(()=>{
+  usuariosInactivos();
+  usuarioActivo();
   recargarChat();
 }, 1000);
-
-console.log(window.location.pathname);
