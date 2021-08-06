@@ -5,4 +5,5 @@ CREATE TABLE ciberchat.`ciberchat` ( `numeroMensaje` INT(11) NOT NULL AUTO_INCRE
   `mensaje` VARCHAR(300) NOT NULL , `hora` VARCHAR(30) NOT NULL ,
   PRIMARY KEY (`numeroMensaje`));
 
+
 CREATE TABLE ciberchat.`usuariosConectados` ( `usuario` VARCHAR(30) NOT NULL, `conectadoDesde` INT(20) NOT NULL, `ultimaActividad` INT(20), `usuarioOnline` BOOLEAN);
