@@ -1,3 +1,4 @@
+
 <?php
 include "../../chat-cred/cred.php";
 session_start();
