@@ -1,7 +1,9 @@
 <?php
   include "../../chat-cred/cred.php";
   session_start();
-  if(strlen($_SESSION["nombre"]) === 0) {
+
+  
+  if($_SESSION["nombre"] == "") {
     echo "Desconectado";
     exit();
   }

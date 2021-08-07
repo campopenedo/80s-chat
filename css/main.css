@@ -7,6 +7,7 @@
   --violetaTrans: rgba(246, 32, 50, 0.15);
   --gris: rgb(120, 122, 151);
   --rojo: rgba(255, 0, 0, 0.247);
+  --redScroll: rgba(207, 0, 0, 0.5);
 }
 
 html{
@@ -82,6 +83,20 @@ fieldset#chat{
   margin-left: 1%;
   overflow-y: scroll;
   scrollbar-color: rgba(207, 0, 0, 0.5) transparent;
+}
+
+
+section#mensajes::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 20px;
+}
+
+section#mensajes::-webkit-scrollbar-thumb {
+  background-color: var(--redScroll);  
+}
+
+section#mensajes::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 
 #mensajes section:not(.servidor) {

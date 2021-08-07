@@ -1,5 +1,6 @@
 <?php
   include "../../chat-cred/cred.php";
+  session_start();
   $con = new mysqli($host, $nombreUsuario, $contrasenhaUsuario, $nombreBBDD);
 
   $mensajesDesde = $_POST['id'];
