@@ -1,4 +1,5 @@
 
+import elegirUsuario from "./elegirUsuario.js";
 import recargarChat from "./recargarChat.js";
 let d = document;
 export default function enviarMensaje(){
@@ -19,7 +20,11 @@ export default function enviarMensaje(){
         xhr.open("POST", "php/guardarMensaje.php", true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(mensajeJSONstring);
-        xhr.addEventListener("load", async () => {
+        xhr.addEventListener("load", (e) => {
+          if(e.target.response === "Desconectado"){
+            document.getElementById("zona-interaccion").innerHTML = "";
+            elegirUsuario();
+          }
           document.getElementById("mensaje").value = "";
         });
         
