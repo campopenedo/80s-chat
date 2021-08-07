@@ -53,7 +53,8 @@ export default async function recargarChat() {
               listaUsuarios();
             }
         };
-        if(document.getElementById("mensajes").scrollHeight - document.getElementById("mensajes").scrollTop === document.getElementById("mensajes").clientHeight){
+        
+        if((document.getElementById("mensajes").scrollHeight - document.getElementById("mensajes").scrollTop) < (document.getElementById("mensajes").clientHeight + 250)){
           document.getElementById("mensajes").appendChild($fragment);
           document.getElementById("mensajes").scrollTop = document.getElementById("mensajes").scrollHeight;
         } else {
