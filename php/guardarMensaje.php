@@ -1,6 +1,11 @@
 <?php
   include "../../chat-cred/cred.php";
   session_start();
+  if(strlen($_SESSION["nombre"]) === 0) {
+    echo "Desconectado";
+    exit();
+  }
+  
   $con = new mysqli($host, $nombreUsuario, $contrasenhaUsuario, $nombreBBDD);
 
   $mensaje = file_get_contents("php://input");

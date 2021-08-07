@@ -7,8 +7,10 @@ $con = new mysqli($host, $nombreUsuario, $contrasenhaUsuario, $nombreBBDD);
 $usuariosInactivos = $con->query('SELECT * FROM `usuariosConectados` WHERE `ultimaActividad` < ('. time() . ' - 5);');
 
 while($row = mysqli_fetch_array($usuariosInactivos)){
+    if($row["usuario"] === $_SESSION["nombre"]){
+        $_SESSION["nombre"] = null;
+    }
     $usuarioDesconectado = $con->query('DELETE FROM usuariosConectados WHERE usuario = "'. $row["usuario"] .'";');
-    $_SESSION["nombre"] = null;
 
     $usuario = "Servidor-desconectado";
     $mensaje = "El usuario ". $row['usuario'] ." se ha desconectado";

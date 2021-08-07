@@ -1,3 +1,4 @@
 export default async function usuarioInactivo() {
-    const usuarioActivo = await fetch("php/usuariosInactivos.php");
+    const usuarioActivo = await fetch("php/usuariosInactivos.php")
+    
 }
